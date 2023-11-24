@@ -1,0 +1,22 @@
+.page {
+  background-color: white;
+}
+
+.section-container {
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+.zaui-list-item {
+  cursor: pointer;
+}
+.zaui-btn {
+  border-radius: 4px;
+  border: 2px solid red;
+  background-color: white;
+  color: red;
+}
+.member {
+  padding: 30px;
+}
