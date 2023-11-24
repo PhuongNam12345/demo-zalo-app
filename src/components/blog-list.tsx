@@ -29,7 +29,7 @@ export const ListBlog = () => {
       <div className=" grid grid-cols-2 gap-4">
         {blog.map(
           (
-            blogItem //map to render blog was usestate
+            blogItem, //map to render blog was usestate
           ) => (
             <>
               <Box
@@ -47,7 +47,7 @@ export const ListBlog = () => {
                 <Text className="font-mono py-0.5">{blogItem.title}</Text>
               </Box>
             </>
-          )
+          ),
         )}
       </div>
       {/* show sheet when have value selectebBlog which is save from blogitem
