@@ -4,6 +4,16 @@ module.exports = {
     content: ["./src/**/*.{js,jsx,ts,tsx,vue}"],
   },
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        150: "150px",
+      },
+      width: {
+        150: "150px",
+      },
+    },
+    minWidth: {
+      "1/2": "50%",
+    },
   },
 };

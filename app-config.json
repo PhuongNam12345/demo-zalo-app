@@ -10,11 +10,13 @@
     "statusBar": "normal",
     "actionBarHidden": false,
     "hideAndroidBottomNavigationBar": false,
-    "hideIOSSafeAreaBottom": false
+    "hideIOSSafeAreaBottom": false,
+    "selfControlLoading": false
   },
   "debug": false,
   "pages": [],
   "listCSS": [],
   "listSyncJS": [],
-  "listAsyncJS": []
+  "listAsyncJS": [],
+  "template": {}
 }

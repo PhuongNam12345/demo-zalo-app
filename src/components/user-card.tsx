@@ -41,7 +41,7 @@ const UserCard = ({ user }) => {
         </Box>
       </Box>
       <Box ml={4} className="btn-card ">
-        <Button size="medium" onClick={getUser}>
+        <Button className="btn-user-card" size="medium" onClick={getUser}>
           Hồ sơ của tôi
         </Button>
       </Box>

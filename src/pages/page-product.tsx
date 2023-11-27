@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Sheet, Text, Box, Page, Swiper, useNavigate } from "zmp-ui";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
-export const Product = () => {
+export const ListProduct = () => {
   const [sheetVisible, setSheetVisible] = useState(false);
   const [product, setProduct] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -26,51 +23,34 @@ export const Product = () => {
     setSheetVisible(true);
     setSelectedProduct(productItem);
   };
-  const settings = {
-    autoplay: true, // Kích hoạt autoplay
-    autoplaySpeed: 3000,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 2,
-    centerMode: false,
-    centerPadding: "50px",
-  };
   return (
     <Box className="w-full relative ">
-      <Box flex className="justify-between">
-        <Text.Title className="font-sans  my-5 text-left">Sản Phẩm</Text.Title>
-        <Text
-          onClick={() => navigate("/listproduct")}
-          className="text-right font-sans  my-5 "
-        >
-          Xem thêm
-        </Text>
-      </Box>
-
-      <Slider {...settings}>
-        {product.map((productItem) => (
-          <>
-            <div
-              key={productItem.productid}
-              onClick={() => handleProductClick(productItem)}
-              className="px-2"
-            >
-              {" "}
-              <Box className="">
-                <img
-                  loading="lazy"
-                  src={productItem.avatar}
-                  className=" h-150 rounded-lg"
-                />
+      <Text.Title className="font-sans my-5 text-center">Sản Phẩm</Text.Title>
+      <Box>
+        <div className=" grid grid-cols-2 gap-4 h-full p-2 ">
+          {product.map((productItem) => (
+            <>
+              <Box
+                className="w-full bg-white rounded h-full"
+                key={productItem.productid}
+                onClick={() => handleProductClick(productItem)}
+              >
+                {" "}
+                <Box className="">
+                  <img
+                    loading="lazy"
+                    src={productItem.avatar}
+                    className=" w-full h-150"
+                  />
+                </Box>
+                <Text className="font-mono my-1 text-center">
+                  {productItem.productname}
+                </Text>
               </Box>
-              <Text className="font-mono my-1 text-center">
-                {productItem.productname}
-              </Text>
-            </div>
-          </>
-        ))}
-      </Slider>
+            </>
+          ))}
+        </div>
+      </Box>
 
       {selectedProduct && (
         <Sheet

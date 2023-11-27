@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Button, Sheet, Text, Box, Page } from "zmp-ui";
-
+import { Button, Sheet, Text, Box, Page, useNavigate } from "zmp-ui";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { Navigate } from "react-router";
 export const ListBlog = () => {
   const [sheetVisible, setSheetVisible] = useState(false); //set status for sheet show details
   const [blog, setBlog] = useState([]); //save value response api return
   const [selectedBlog, setSelectedBlog] = useState(null); //usestade blog was click
+  const navigate = useNavigate();
   useEffect(() => {
     async function fetchData() {
       try {
@@ -23,17 +27,35 @@ export const ListBlog = () => {
     setSelectedBlog(blogItem);
     // update info blog click
   };
+  const settings = {
+    autoplay: true, // Kích hoạt autoplay
+    autoplaySpeed: 3000,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 2,
+    centerMode: false,
+    centerPadding: "50px",
+  };
   return (
     <Box className="w-full relative ">
-      <Text.Title className="font-sans text-center my-5">List Blog</Text.Title>
-      <div className=" grid grid-cols-2 gap-4">
+      <Box flex className="justify-between">
+        <Text.Title className="font-sans text-center my-5">Bài Viết</Text.Title>
+        <Text
+          className="font-sans text-center my-5"
+          onClick={() => navigate("/listblog")}
+        >
+          Xem thêm
+        </Text>
+      </Box>
+      <Slider {...settings}>
         {blog.map(
           (
-            blogItem, //map to render blog was usestate
+            blogItem //map to render blog was usestate
           ) => (
             <>
-              <Box
-                className="w-full bg-red-400 rounded h-full"
+              <div
+                className=" p-2 w-full rounded h-full"
                 key={blogItem.blogID}
                 onClick={() => handleBlogClick(blogItem)}
               >
@@ -41,15 +63,15 @@ export const ListBlog = () => {
                   <img
                     loading="lazy"
                     src={blogItem.avatar}
-                    className=" w-full h-full rounded-lg"
+                    className=" w-full h-150 rounded-lg"
                   />
                 </Box>
-                <Text className="font-mono py-0.5">{blogItem.title}</Text>
-              </Box>
+                <Text className="font-mono p-2">{blogItem.title}</Text>
+              </div>
             </>
-          ),
+          )
         )}
-      </div>
+      </Slider>
       {/* show sheet when have value selectebBlog which is save from blogitem
       onclick */}
       {selectedBlog && (

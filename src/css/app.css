@@ -3,15 +3,17 @@
 }
 
 .section-container {
-  padding: 20px;
+  padding: 15px;
   background: #ffffff;
   border-radius: 8px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .zaui-list-item {
   cursor: pointer;
 }
-.zaui-btn {
+.btn-user-card {
   border-radius: 4px;
   border: 2px solid red;
   background-color: white;
@@ -19,4 +21,9 @@
 }
 .member {
   padding: 30px;
+}
+.box-doctor {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
 }

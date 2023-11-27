@@ -8,7 +8,9 @@ import Member from "../components/member";
 import Banner from "../components/banner";
 import { ProductItem } from "../components/box-icon";
 import { ListBlog } from "../components/blog-list";
-import { ListProduct } from "../components/product-list";
+import { Product } from "../components/product-list";
+import { Doctor } from "../components/top-doctor";
+import { ListCatelogy } from "../components/catelogy";
 
 const HomePage: React.FunctionComponent = () => {
   const user = useRecoilValue(userState);
@@ -22,8 +24,16 @@ const HomePage: React.FunctionComponent = () => {
         <Banner />
       </div>
       <div className="section-container">
-        <Member />
-        <ListProduct />
+        <ListCatelogy />
+      </div>
+      <div className="section-container">
+        <Doctor />
+      </div>
+      <div className="section-container">
+        {/* <Member /> */}
+        <Product />
+      </div>
+      <div className="section-container">
         <ListBlog />
       </div>
     </Page>
